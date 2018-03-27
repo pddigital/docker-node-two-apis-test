@@ -1,4 +1,4 @@
-FROM node:8.10.0-ubuntu
+FROM node:8.10.0
 WORKDIR ./
 COPY package*.json ./
 RUN npm install pm2 -g

@@ -8,7 +8,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  fetch('https://api-prod.enro.com/api/nav/main-nav').then(response => {
+  fetch('http://192.168.0.2:8090/api/test').then(response => {
     return response.json()
   }).then(response => {
     return res.status(200).json(response);
