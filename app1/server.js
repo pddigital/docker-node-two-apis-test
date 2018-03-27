@@ -1,37 +1,21 @@
-const express = require("express");
-const fetch = require("isomorphic-unfetch");
-const redis = require("redis");
+const express = require('express')
+const next = require('next')
 
-const redisClient = redis.createClient({
-  host: "192.168.0.1", // The redis's server ip
-  port: "6379"
-});
+const port = parseInt(process.env.PORT, 10) || 8080
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-redisClient.on("connect", err => {
-  console.log("Connected to Redis!");
-});
+app.prepare()
+.then(() => {
+  const server = express()
 
-// Constants
-const PORT = 8080;
-const HOST = "0.0.0.0";
+  server.get('*', (req, res) => {
+    return handle(req, res)
+  })
 
-// App
-const app = express();
-app.get("/", (req, res) => {
-  redisClient.set('testkey', 'and a test value from redis');
-  fetch("http://192.168.0.1:8090/api/test")
-    .then(response => {
-      return response.json();
-    })
-    .then(response => {
-      redisClient.get('testkey', (err, content) => {
-        return res.status(200).json(response.content + ' ' + content);
-      })
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+  server.listen(port, (err) => {
+    if (err) throw err
+    console.log(`> Ready on http://localhost:${port}`)
+  })
+})
