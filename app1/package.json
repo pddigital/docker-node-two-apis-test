@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^4.16.1",
-    "isomorphic-unfetch": "^2.0.0"
+    "isomorphic-unfetch": "^2.0.0",
+    "redis": "^2.8.0"
   }
 }
