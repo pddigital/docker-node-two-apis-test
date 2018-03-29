@@ -1,5 +1,7 @@
 apps:
   - script   : 'server.js'
     name     : 'test-app'
+    env    :
+      NODE_ENV: production
     exec_mode: 'cluster'
     instances: 4

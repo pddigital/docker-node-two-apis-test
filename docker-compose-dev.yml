@@ -8,14 +8,14 @@ services:
       - br0
   web:
     build: ./app1
-    command: ["pm2-runtime", "process.yml"]
+    command: node server.js
     ports:
       - "8080:8080"
     networks: 
       - br0
   api:
     build: ./app2
-    command: ["pm2-runtime", "process.yml"]
+    command: npm run dev
     ports:
       - "8090:8090"
     networks: 

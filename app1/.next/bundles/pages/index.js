@@ -1,0 +1,1 @@
+module.exports=__NEXT_REGISTER_PAGE("/",function(){var e=webpackJsonp([1],{181:function(e,t,n){e.exports=n(182)},182:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:true});var r=n(12);var u=n.n(r);t["default"]=function(){return u.a.createElement("div",null,u.a.createElement("h1",null,"THIS IS A TEST."))}}},[181]);return{page:e.default}});
