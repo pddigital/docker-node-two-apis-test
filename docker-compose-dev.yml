@@ -8,18 +8,20 @@ services:
       - br0
   web:
     build: ./app1
-    command: node server.js
     volumes:
-      - ./app1:/app1
+        - ./app1:/var/www/app
+        - /var/www/app/node_modules
     ports:
       - "8080:8080"
     networks: 
       - br0
+    command: npm run dev
   api:
     build: ./app2
     command: npm run dev
     volumes:
-      - ./app2:/app2
+        - ./app2:/var/www/app2
+        - /var/www/app2/node_modules
     ports:
       - "8090:8090"
     networks: 
