@@ -9,6 +9,8 @@ services:
   web:
     build: ./app1
     command: node server.js
+    volumes:
+      - ./app1:/app1
     ports:
       - "8080:8080"
     networks: 
@@ -16,6 +18,8 @@ services:
   api:
     build: ./app2
     command: npm run dev
+    volumes:
+      - ./app2:/app2
     ports:
       - "8090:8090"
     networks: 

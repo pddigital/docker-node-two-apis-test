@@ -6,10 +6,11 @@
   "main": "/server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon --watch . server.js"
   },
   "dependencies": {
     "express": "^4.16.1",
+    "isomorphic-unfetch": "^2.0.0",
     "redis": "^2.8.0"
   }
 }
