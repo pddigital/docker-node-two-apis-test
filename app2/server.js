@@ -11,6 +11,8 @@ redisClient.on("connect", err => {
   console.log("Connected to Redis!");
 });
 
+console.log('test 2')
+
 // Constants
 const PORT = 8090;
 const HOST = '0.0.0.0';
