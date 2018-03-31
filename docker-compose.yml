@@ -8,20 +8,27 @@ services:
       - br0
   web:
     build: ./app1
-    command: ["pm2-runtime", "process.yml"]
     ports:
       - "8080:8080"
+    volumes:
+      - ./app1:/var/www/app
+      - /var/www/app/node_modules
+      - /var/www/app/.next
     networks: 
       - br0
+    command: ["pm2-runtime", "process.yml"]
   api:
     build: ./app2
-    command: ["pm2-runtime", "process.yml"]
+    volumes:
+      - ./app2:/var/www/app2
+      - /var/www/app2/node_modules
     ports:
       - "8090:8090"
     networks: 
       - br0
     depends_on:
       - "cache"
+    command: ["pm2-runtime", "process.yml"]
 networks:
     br0:
       external: true

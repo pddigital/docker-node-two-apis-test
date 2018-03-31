@@ -1,6 +1,6 @@
 apps:
   - script   : 'server.js'
-    name     : 'test-app'
+    name     : 'test-app 2'
     env    :
       NODE_ENV: production
     exec_mode: 'cluster'

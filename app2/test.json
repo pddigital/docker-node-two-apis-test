@@ -1,0 +1,49 @@
+{
+  "brand": "enro",
+  "orderId": 20026863,
+  "orderDate": "20180316",
+  "shippingAddress": {
+    "firstName": "Paul",
+    "lastName": "Day",
+    "address1": "5700 ARBOR HILLS WAY",
+    "address2": "Apt 206",
+    "city": "THE COLONY",
+    "state": "TX",
+    "zip": "75056",
+    "country": "US",
+    "phone": "2406750683",
+    "email": "proposalpaul@gmail.com"
+  },
+  "billingAddress": {
+    "firstName": "Paul",
+    "lastName": "Day",
+    "address1": "5700 ARBOR HILLS WAY",
+    "address2": "Apt 206",
+    "city": "THE COLONY",
+    "state": "TX",
+    "zip": "75056",
+    "country": "US",
+    "phone": "2406750683",
+    "email": "proposalpaul@gmail.com"
+  },
+  "totalTax": 14.76,
+  "shippingCost": 0,
+  "shippingTax": 0,
+  "shippingMethod": "CKT",
+  "source": "test",
+  "hasMonogramming": false,
+  "items": [
+    {
+      "itemNumber": "178405111058015",
+      "description": "Stonewall Check Windsor Collar Non-Iron Dress Shirt",
+      "price": 89.5,
+      "discountAmt": 0,
+      "discountPrice": 89.5,
+      "itemTax": 7.38,
+      "qty": 2,
+      "clearance": false,
+      "finalSale": false,
+      "isMonogrammed": false
+    }
+  ]
+}
