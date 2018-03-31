@@ -1,8 +1,6 @@
 const express = require('express');
 const redis = require("redis");
 const fetch = require("isomorphic-unfetch");
-const fs = require("fs");
-const path = require("path");
 
 const redisClient = redis.createClient({
   host: "192.168.0.1", // The redis's server ip
@@ -42,17 +40,6 @@ app.get('/api/test', (req, res) => {
       console.log(err);
     });
 });
-
-app.get('/api/write/file', (req, res)=> {
-  const m3 = require("./test.json");
-  fs
-    .writeFile(
-      path.resolve(`${__dirname}/m3/${new Date()}.json`),
-      JSON.stringify(m3), (err, content) => {
-        res.send("done");
-      }
-    )
-})
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
