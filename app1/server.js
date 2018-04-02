@@ -1,21 +1,15 @@
-const express = require('express')
-const next = require('next')
+// server.js
+const next = require('next');
+const routes = require('./routes');
 
-const port = parseInt(process.env.PORT, 10) || 8080
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const app = next({ dev: process.env.NODE_ENV !== 'production' });
+const handler = routes.getRequestHandler(app);
+const port = 8080;
 
-app.prepare()
-.then(() => {
-  const server = express()
+// With express.js
+const express = require('express');
 
-  server.get('*', (req, res) => {
-    return handle(req, res)
-  })
-
-  server.listen(port, (err) => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
-})
+app.prepare().then(() => {
+  express().use(handler).listen(port);
+  console.log(`Next.JS is listening on port ${port}`);
+});

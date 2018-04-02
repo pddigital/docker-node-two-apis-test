@@ -1,5 +1,7 @@
+import {Link} from '../routes';
+
 export default ({data}) => (
   <div>
-    {data.title}
+    <p>test 2</p>
   </div>
 );
