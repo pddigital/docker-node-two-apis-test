@@ -1,5 +1,5 @@
 # Purpose
-Here I'm demonstrating how to use Docker with Next.js - and use an external API in a seperate container. I also added Redis and Nodemon to demonstrate their use in this setup.
+Here I'm demonstrating how to use Docker with Next.js - and use an external API in a seperate container. I also added PM2,  Redis,  and Nodemon to demonstrate their use in this setup.
 
 # Create a Network:
 ```sh 
@@ -20,3 +20,5 @@ Navigate your browser to ``http://localhost:8080``. You should see changes to co
 $ docker-compose build
 $ docker-compose up
 ```
+
+PM2 in Cluster Mode is being used within the container for persistance of both Next and the Node API. Note: ```next build``` is automatically called to build the files for production.
