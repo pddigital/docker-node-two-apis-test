@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const redis = require("redis");
 const fetch = require("isomorphic-unfetch");
 
@@ -11,32 +11,41 @@ redisClient.on("connect", err => {
   console.log("Connected to Redis!");
 });
 
-console.log('test 2')
+console.log("test 2");
 
 // Constants
 const PORT = 8090;
-const HOST = '0.0.0.0';
+const HOST = "0.0.0.0";
 
 // App
 const app = express();
 
-app.get('/', (req, res) => {
-  res.status(200).json('Hello from root!')
+app.get("/", (req, res) => {
+  res.status(200).json("Hello from root!");
 });
 
-app.get('/api/test', (req, res) => {
-  redisClient.set('testkey', 'and a test value from redis');
-  fetch("https://swapi.co/api/planets/1/")
+app.get("/api/films", (req, res) => {
+  fetch("https://swapi.co/api/films")
     .then(response => {
       return response.json();
     })
     .then(response => {
-      redisClient.get('testkey', (err, content) => {
-        return res.status(200).json(response.name + ' ' + content);
-      })
+      return res.status(200).json(response);
     })
     .catch(err => {
+      console.log(err);
+    });
+});
 
+app.get("/api/films/:id", (req, res) => {
+  fetch("https://swapi.co/api/films/" + req.params.id)
+    .then(response => {
+      return response.json();
+    })
+    .then(response => {
+      return res.status(200).json(response);
+    })
+    .catch(err => {
       console.log(err);
     });
 });

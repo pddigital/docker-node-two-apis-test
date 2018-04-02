@@ -1,4 +1,4 @@
-# Purpose
+# Purpose:
 Here I'm demonstrating how to use Docker with Next.js - and use an external API in a seperate container. I also added PM2,  Redis,  and Nodemon to demonstrate their use in this setup.
 
 # Create a Network:

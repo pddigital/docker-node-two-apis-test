@@ -1,21 +1,20 @@
 import keys from "../keys";
 import fetch from "isomorphic-unfetch";
+import OneFilm from "../components/oneFilm";
 
 export default class Index extends React.Component {
-    static async getInitialProps({ store, isServer, pathname, query }) {
-        const test = await fetch(`${keys.apiUrl}/api/test`);
-        const testJson = await test.json();
+  static async getInitialProps({ store, isServer, pathname, query }) {
+    const test = await fetch(`${keys.apiUrl}/api/test`);
+    const testJson = await test.json();
 
-        return { data: testJson };
-      }
+    return { data: testJson };
+  }
 
+  render() {
+    const films = this.props.data.results.map(one => 
+        <OneFilm key={one.episode_id} data={one} />
+    );
 
-    render() {
-        console.log(this.props.data)
-        return (
-            <div>
-            <h1>THIS IS A TEST 10.</h1>
-        </div>
-        );
-    }
+    return <div>{films}</div>;
+  }
 }
