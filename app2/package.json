@@ -9,6 +9,7 @@
     "dev": "nodemon --watch . server.js"
   },
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.1",
     "isomorphic-unfetch": "^2.0.0",
     "redis": "^2.8.0"

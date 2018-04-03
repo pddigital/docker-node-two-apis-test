@@ -1,5 +1,8 @@
 version: '3'
 services:
+  nginx: 
+    image: nginx
+    ports: "8080:80"
   cache:
     image: redis:4.0.8-alpine
     ports: 
@@ -9,13 +12,11 @@ services:
   web:
     build: ./app1
     ports:
-      - "8080:8080"
+      - "9000:80"
     volumes:
-      - ./app1:/var/www/app
-      - /var/www/app/node_modules
-      - /var/www/app/.next
-    networks: 
-      - br0
+      - ./app1:/var/www/app1
+      - /var/www/app1/node_modules
+      - /var/www/app1/.next
     command: ["pm2-runtime", "process.yml"]
   api:
     build: ./app2
@@ -23,12 +24,7 @@ services:
       - ./app2:/var/www/app2
       - /var/www/app2/node_modules
     ports:
-      - "8090:8090"
-    networks: 
-      - br0
+      - "9010:80"
     depends_on:
       - "cache"
     command: ["pm2-runtime", "process.yml"]
-networks:
-    br0:
-      external: true

@@ -4,7 +4,7 @@ const routes = require('./routes');
 
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handler = routes.getRequestHandler(app);
-const port = 8080;
+const port = 9000;
 
 // With express.js
 const express = require('express');

@@ -9,8 +9,8 @@ services:
   web1:
     build: ./app1
     volumes:
-        - ./app1:/var/www/app
-        - /var/www/app/node_modules
+        - ./app1:/var/www/app1
+        - /var/www/app1/node_modules
     ports:
       - "8080:8080"
     networks: 

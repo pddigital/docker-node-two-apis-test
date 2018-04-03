@@ -2,6 +2,6 @@ import {Link} from '../routes';
 
 export default ({data}) => (
   <div>
-    <p>test 2</p>
+    <p><Link route={`/detail/${data.episode_id}`}><a>{data.title}</a></Link></p>
   </div>
 );

@@ -1,6 +1,7 @@
 const express = require("express");
 const redis = require("redis");
 const fetch = require("isomorphic-unfetch");
+cors = require("cors");
 
 const redisClient = redis.createClient({
   host: "192.168.0.1", // The redis's server ip
@@ -11,7 +12,7 @@ redisClient.on("connect", err => {
   console.log("Connected to Redis!");
 });
 
-console.log("test 2");
+console.log("test 3");
 
 // Constants
 const PORT = 8090;
@@ -19,6 +20,18 @@ const HOST = "0.0.0.0";
 
 // App
 const app = express();
+
+
+const corsOptions = {
+  origin: [
+    "http://192.168.0.1:8080",
+    "http://localhost:8080"
+  ],
+  default: "http://localhost:8080",
+  credentials: true
+};
+app.use(cors(corsOptions));
+
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello from root!");
