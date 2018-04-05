@@ -8,4 +8,4 @@ RUN npm install cross-env -g
 RUN npm install nodemon -g
 RUN npm install
 COPY . /var/www/app2/
-EXPOSE 9010
+EXPOSE 8090

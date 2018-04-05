@@ -12,7 +12,7 @@ redisClient.on("connect", err => {
   console.log("Connected to Redis!");
 });
 
-console.log("test 3");
+console.log("test 23");
 
 // Constants
 const PORT = 8090;
@@ -50,8 +50,8 @@ app.get("/api/films", (req, res) => {
     });
 });
 
-app.get("/api/films/one/:id", (req, res) => {
-  fetch("https://swapi.co/api/films/" + req.params.id)
+app.get("/api/films/one/:dataUrl", (req, res) => {
+  fetch(req.params.dataUrl)
     .then(response => {
       return response.json();
     })

@@ -8,4 +8,4 @@ RUN npm install cross-env -g
 RUN npm install
 COPY . /var/www/app1/
 RUN npm run build
-EXPOSE 9000
+EXPOSE 8080
